@@ -25,21 +25,37 @@ inputs:
     service: ${github_tektoncatalog}
 private_worker: ${private_worker07}
 properties:
-  - name: X-tron-ci_cd-token
-    type: secure
-    value: ""
+  # Properties to build operator and test it
+  - name: helm-chart
+    type: text
+    value: "memcached-operator-chart"
   - name: ansible-roles-path
     type: text
     value: ./roles/Memcached
+  - name: molecule-scenario-ci-test
+    type: text
+    value: "test-local"
+  - name: molecule-scenario-cd-test
+    type: text
+    value: "test-cluster"
+  - name: toolchain-apikey
+    type: secure
+    value: ""
   - name: apikey
     type: secure
     value: ""
-  - name: artifactory-apikey
-    type: secure
-    value: ""
+  - name: operator-image-url
+    type: text
+    value: us.icr.io/jauninb-tron/memcached-operator
   - name: artifactory-repository-path
     type: text
     value: tron/jauninb
+  - name: helm-repository-username
+    type: text
+    value: jaunin.b@fr.ibm.com
+  - name: artifactory-apikey
+    type: secure
+    value: ""
   - name: deploy-namespace
     type: text
     value: tron-memcached
@@ -49,30 +65,19 @@ properties:
   - name: github-ibm-com-id_rsa-pub
     type: secure
     value: ""
-  - name: helm-chart
-    type: text
-    value: memcached-operator-chart
-  - name: helm-repository-username
-    type: text
-    value: jaunin.b@fr.ibm.com
-  - name: molecule-scenario-ci-test
-    type: text
-    value: test-local
-  - name: operator-image-url
-    type: text
-    value: us.icr.io/jauninb-tron/memcached-operator
   - name: test-cluster-name
     type: text
     value: mycluster
-  - name: toolchain-apikey
-    type: secure
-    value: ""
   - name: tron-cd-trigger-webhook
     type: text
     value: ""
+  - name: X-tron-ci_cd-token
+    type: secure
+    value: ""
 triggers:
-  - eventListener: ansible-operator-ci-manual
+  - type: manual
     name: ci-master-manual
+    eventListener: ansible-operator-ci-manual
     properties:
       - name: branch
         type: text
@@ -80,7 +85,13 @@ triggers:
       - name: repository
         type: text
         value: ${operator_repository_url}
-    type: manual
+  - type: git
+    name: ci-master-commit
+    eventListener: ansible-operator-ci-github-commit
+    service: ${git_operator}
+    branch: master
+    events:
+      push: true
   - eventListener: ansible-operator-test-manual
     name: test-operator-manual
     properties:
@@ -89,7 +100,7 @@ triggers:
         value: "master"
       - name: ansible-operator-configs-repository
         type: text
-        value: "https://github.ibm.com/watson-deploy-configs/demo-operator-configs"
+        value: ${operator_configs_repository_url}
       - name: delete-release
         type: text
         value: ""
@@ -101,7 +112,7 @@ triggers:
         value: "master"
       - name: molecule-tests-repository
         type: text
-        value: "https://github.com/jauninb/memcached-operator-sample"
+        value: ${operator_repository_url}
     type: manual
   # - eventListener: ansible-operator-test-webhook
   #   name: test-operator-webhook
