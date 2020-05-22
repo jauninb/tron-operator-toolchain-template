@@ -1,15 +1,22 @@
 version: 2
+messages:
+  $i18n: locales.yml
 template:
-  name: Build your own toolchain
-  description: tron-operator-ci
+  name:
+    $ref: "#/messages/template.name"
+  description:
+    $ref: "#/messages/template.description"
   required:
-  - github_integrated08
-  - githubconsolidated03
-  - private_worker07
-  - slack04
-  - pipeline09
+    - github_integrated08
+    - githubconsolidated03
+    - private_worker07
+    - slack04
+    - pipeline09
 toolchain:
-  name: tron-operator-ci_cd
+  template:
+    getting_started:
+      $ref: "#/messages/template.gettingStarted"
+  name: "ansible-operator-ci_cd-{{timestamp}}"
 services:
   githubconsolidated01:
     parameters:
@@ -76,11 +83,11 @@ services:
         env:
           github_integrated08: github_integrated08
           githubconsolidated03: githubconsolidated03
-          private_worker07: '{{services.private_worker07.parameters.name}}'
+          private_worker07: "{{services.private_worker07.parameters.name}}"
         content:
           $text: pipeline_pipeline09.yml
       services:
-      - github_integrated08
-      - githubconsolidated03
-      - private_worker07
+        - github_integrated08
+        - githubconsolidated03
+        - private_worker07
     service_id: pipeline
