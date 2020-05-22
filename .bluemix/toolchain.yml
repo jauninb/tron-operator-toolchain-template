@@ -85,6 +85,8 @@ services:
           github_tektoncatalog: github_tektoncatalog
           git_operator: git_operator
           git_operator_configs: git_operator_configs
+          operator_repository_url: '{{services.git_operator.parameters.repo_url}}'
+          operator_configs_repository_url: '{{services.git_operator_configs.parameters.repo_url}}'
           private_worker07: "{{services.private_worker07.parameters.name}}"
         content:
           $text: pipeline_cicd.yml

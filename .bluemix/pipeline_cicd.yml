@@ -79,7 +79,7 @@ triggers:
         value: "master"
       - name: repository
         type: text
-        value: "https://github.com/jauninb/memcached-operator-sample"
+        value: ${operator_repository_url}
     type: manual
   - eventListener: ansible-operator-test-manual
     name: test-operator-manual
