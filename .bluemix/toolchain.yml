@@ -75,9 +75,8 @@ services:
     service_id: github_integrated
   pipeline09:
     parameters:
-      label: memcached-operator-cicd
       type: tekton
-      name: memcached-operator-cicd
+      name: ansible-operator-cicd
       ui_pipeline: false
       configuration:
         env:
