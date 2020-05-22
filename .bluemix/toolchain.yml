@@ -1,0 +1,146 @@
+version: 2
+template:
+  name: Build your own toolchain
+  description: tron-operator-ci
+  required:
+  - github_integrated08
+  - githubconsolidated03
+  - private_worker07
+  - slack04
+toolchain:
+  name: tron-operator-ci_cd
+services:
+  githubconsolidated01:
+    parameters:
+      extra_capabilities:
+      - capability_id: git.issues
+        display_name: Issues
+        dashboard_url: https://github.com/jauninb/memcached-operator-sample/issues
+        label: memcached-operator-sample
+        tags:
+        - think
+        - code
+        enabled: false
+        readme: false
+      label: memcached-operator-sample
+      type: link
+      legal: false
+      git_id: github
+      repo_url: https://github.com/jauninb/memcached-operator-sample.git
+      private_repo: false
+      has_issues: false
+      auto_init: false
+      enable_traceability: false
+      authorized: github
+      integration_owner: IBMid-110000EXWD
+      owner_id: jauninb
+      repo_name: memcached-operator-sample
+      api_root_url: https://api.github.com
+      token_url: https://otc-github-consolidated-broker.us-south.devops.cloud.ibm.com/github/token?git_id=github
+    service_id: githubconsolidated
+  githubconsolidated03:
+    parameters:
+      extra_capabilities:
+      - capability_id: git.issues
+        display_name: Issues
+        dashboard_url: https://github.com/open-toolchain/tekton-catalog/issues
+        label: tekton-catalog
+        tags:
+        - think
+        - code
+        enabled: false
+        readme: false
+      label: tekton-catalog
+      type: link
+      legal: false
+      git_id: github
+      repo_url: https://github.com/open-toolchain/tekton-catalog.git
+      private_repo: false
+      has_issues: false
+      auto_init: false
+      enable_traceability: false
+      authorized: github
+      integration_owner: IBMid-110000EXWD
+      owner_id: open-toolchain
+      repo_name: tekton-catalog
+      api_root_url: https://api.github.com
+      token_url: https://otc-github-consolidated-broker.us-south.devops.cloud.ibm.com/github/token?git_id=github
+    service_id: githubconsolidated
+  slack04:
+    service_id: slack
+  github_integrated05:
+    parameters:
+      extra_capabilities:
+      - capability_id: git.issues
+        display_name: Issues
+        dashboard_url: https://github.ibm.com/watson-deploy-configs/demo-operator-configs/issues
+        label: demo-operator-configs
+        tags:
+        - think
+        - code
+        enabled: false
+        readme: false
+      label: demo-operator-configs
+      type: link
+      legal: true
+      owner_id: watson-deploy-configs
+      repo_name: demo-operator-configs
+      repo_url: https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git
+      source_repo_url: ""
+      private_repo: false
+      has_issues: false
+      enable_traceability: false
+      integration_owner: IBMid-110000EXWD
+      git_id: integrated
+      api_root_url: https://github.ibm.com/api
+      token_url: https://otc-github-consolidated-broker.us-south.devops.cloud.ibm.com/github/token?git_id=integrated
+    service_id: github_integrated
+  draservicebroker06:
+    service_id: draservicebroker
+  private_worker07:
+    service_id: private_worker
+  github_integrated08:
+    parameters:
+      extra_capabilities:
+      - capability_id: git.issues
+        display_name: Issues
+        dashboard_url: https://github.ibm.com/jaunin-b/tron-operator-tekton-definitions/issues
+        label: tron-operator-tekton-definitions
+        tags:
+        - think
+        - code
+        enabled: false
+        readme: false
+      label: tron-operator-tekton-definitions
+      type: link
+      legal: true
+      owner_id: jaunin-b
+      repo_name: tron-operator-tekton-definitions
+      repo_url: https://github.ibm.com/jaunin-b/tron-operator-tekton-definitions.git
+      source_repo_url: ""
+      private_repo: false
+      has_issues: false
+      enable_traceability: false
+      integration_owner: IBMid-110000EXWD
+      git_id: integrated
+      api_root_url: https://github.ibm.com/api
+      token_url: https://otc-github-consolidated-broker.us-south.devops.cloud.ibm.com/github/token?git_id=integrated
+    service_id: github_integrated
+  pipeline09:
+    parameters:
+      label: memcached-operator-cicd
+      type: tekton
+      name: memcached-operator-cicd
+      ui_pipeline: false
+      configuration:
+        env:
+          github_integrated08: github_integrated08
+          githubconsolidated03: githubconsolidated03
+          private_worker07: '{{services.private_worker07.parameters.name}}'
+        content:
+          $text: pipeline_pipeline09.yml
+      services:
+      - github_integrated08
+      - githubconsolidated03
+      - private_worker07
+    service_id: pipeline
