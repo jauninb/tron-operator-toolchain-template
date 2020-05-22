@@ -103,16 +103,16 @@ triggers:
         type: text
         value: "https://github.com/jauninb/memcached-operator-sample"
     type: manual
-  - eventListener: ansible-operator-test-webhook
-    name: test-operator-webhook
-    properties:
-      - name: ansible-operator-configs-branch
-        type: text
-        value: "master"
-      - name: ansible-operator-configs-repository
-        type: text
-        value: "https://github.ibm.com/watson-deploy-configs/demo-operator-configs"
-      - name: delete-release
-        type: text
-        value: ""
-    type: generic
+  # - eventListener: ansible-operator-test-webhook
+  #   name: test-operator-webhook
+  #   properties:
+  #     - name: ansible-operator-configs-branch
+  #       type: text
+  #       value: "master"
+  #     - name: ansible-operator-configs-repository
+  #       type: text
+  #       value: "https://github.ibm.com/watson-deploy-configs/demo-operator-configs"
+  #     - name: delete-release
+  #       type: text
+  #       value: ""
+  #   type: generic
