@@ -7,10 +7,11 @@ template:
   description:
     $ref: "#/messages/template.description"
   required:
-    - github_integrated08
-    - githubconsolidated03
+    - github_tron_tektondefinitions
+    - github_tektoncatalog
+    - git_operator
     - private_worker07
-    - slack04
+    - slack
     - pipeline09
 toolchain:
   template:
@@ -18,19 +19,7 @@ toolchain:
       $ref: "#/messages/template.gettingStarted"
   name: "ansible-operator-ci_cd-{{timestamp}}"
 services:
-  githubconsolidated01:
-    parameters:
-      label: memcached-operator-sample
-      type: link
-      git_id: github
-      repo_url: https://github.com/jauninb/memcached-operator-sample.git
-      private_repo: false
-      has_issues: false
-      enable_traceability: false
-      owner_id: jauninb
-      repo_name: memcached-operator-sample
-    service_id: githubconsolidated
-  githubconsolidated03:
+  github_tektoncatalog:
     parameters:
       label: tekton-catalog
       type: link
@@ -41,26 +30,7 @@ services:
       owner_id: open-toolchain
       repo_name: tekton-catalog
     service_id: githubconsolidated
-  slack04:
-    service_id: slack
-  github_integrated05:
-    parameters:
-      label: demo-operator-configs
-      type: link
-      legal: true
-      owner_id: watson-deploy-configs
-      repo_name: demo-operator-configs
-      repo_url: https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git
-      private_repo: false
-      has_issues: false
-      enable_traceability: false
-      git_id: integrated
-    service_id: github_integrated
-  draservicebroker06:
-    service_id: draservicebroker
-  private_worker07:
-    service_id: private_worker
-  github_integrated08:
+  github_tron_tektondefinitions:
     parameters:
       label: tron-operator-tekton-definitions
       type: link
@@ -73,6 +43,37 @@ services:
       enable_traceability: false
       git_id: integrated
     service_id: github_integrated
+  git_operator:
+    parameters:
+      label: memcached-operator-sample
+      type: link
+      git_id: github
+      repo_url: https://github.com/jauninb/memcached-operator-sample.git
+      private_repo: false
+      has_issues: false
+      enable_traceability: false
+      owner_id: jauninb
+      repo_name: memcached-operator-sample
+    service_id: githubconsolidated
+  git_operator_configs:
+    parameters:
+      label: demo-operator-configs
+      type: link
+      legal: true
+      owner_id: watson-deploy-configs
+      repo_name: demo-operator-configs
+      repo_url: https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git
+      private_repo: false
+      has_issues: false
+      enable_traceability: false
+      git_id: integrated
+    service_id: github_integrated
+  slack:
+    service_id: slack
+  devops_insights:
+    service_id: draservicebroker
+  private_worker07:
+    service_id: private_worker
   pipeline09:
     parameters:
       type: tekton
@@ -80,13 +81,17 @@ services:
       ui_pipeline: false
       configuration:
         env:
-          github_integrated08: github_integrated08
-          githubconsolidated03: githubconsolidated03
+          github_tron_tektondefinitions: github_tron_tektondefinitions
+          github_tektoncatalog: github_tektoncatalog
+          git_operator: git_operator
+          git_operator_configs: git_operator_configs
           private_worker07: "{{services.private_worker07.parameters.name}}"
         content:
-          $text: pipeline_pipeline09.yml
+          $text: pipeline_cicd.yml
       services:
-        - github_integrated08
-        - githubconsolidated03
+        - github_tron_tektondefinitions
+        - github_tektoncatalog
+        - git_operator
+        - git_operator_configs
         - private_worker07
     service_id: pipeline

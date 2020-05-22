@@ -1,28 +1,28 @@
 inputs:
-  - branch: tkn_v1beta1
-    path: git
-    type: git
-    service: ${githubconsolidated03}
-  - branch: tkn_v1beta1
-    path: container-registry
-    type: git
-    service: ${githubconsolidated03}
-  - branch: tkn_v1beta1
-    path: kubernetes-service
-    type: git
-    service: ${githubconsolidated03}
-  - branch: tkn_v1beta1
-    path: slack
-    type: git
-    service: ${githubconsolidated03}
   - branch: master
     path: .tekton
     type: git
-    service: ${github_integrated08}
+    service: ${github_tron_tektondefinitions}
+  - branch: tkn_v1beta1
+    path: git
+    type: git
+    service: ${github_tektoncatalog}
+  - branch: tkn_v1beta1
+    path: container-registry
+    type: git
+    service: ${github_tektoncatalog}
+  - branch: tkn_v1beta1
+    path: kubernetes-service
+    type: git
+    service: ${github_tektoncatalog}
+  - branch: tkn_v1beta1
+    path: slack
+    type: git
+    service: ${github_tektoncatalog}
   - branch: tkn_v1beta1
     path: devops-insights
     type: git
-    service: ${githubconsolidated03}
+    service: ${github_tektoncatalog}
 private_worker: ${private_worker07}
 properties:
   - name: X-tron-ci_cd-token
