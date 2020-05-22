@@ -81,13 +81,38 @@ triggers:
         type: text
         value: "https://github.com/jauninb/memcached-operator-sample"
     type: manual
-  - eventListener: ansible-operator-ci-manual
-    name: ci-2-master-manual
+  - eventListener: ansible-operator-test-manual
+    name: test-operator-manual
     properties:
-      - name: branch
+      - name: ansible-operator-configs-branch
         type: text
-        value: "master2"
-      - name: repository
+        value: "master"
+      - name: ansible-operator-configs-repository
         type: text
-        value: "https://github.com/jauninb/memcached-operator-sample2"
+        value: "https://github.ibm.com/watson-deploy-configs/demo-operator-configs"
+      - name: delete-release
+        type: text
+        value: ""
+      - name: helm-chart-version
+        type: text
+        value: ""
+      - name: molecule-tests-branch
+        type: text
+        value: "master"
+      - name: molecule-tests-repository
+        type: text
+        value: "https://github.com/jauninb/memcached-operator-sample"
     type: manual
+  # - eventListener: ansible-operator-test-webhook
+  #   name: test-operator-webhook
+  #   properties:
+  #     - name: ansible-operator-configs-branch
+  #       type: text
+  #       value: master
+  #     - name: ansible-operator-configs-repository
+  #       type: text
+  #       value: "https://github.ibm.com/watson-deploy-configs/demo-operator-configs"
+  #     - name: delete-release
+  #       type: text
+  #       value: ""
+  #   type: generic
