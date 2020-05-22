@@ -97,3 +97,10 @@ services:
         - git_operator_configs
         - private_worker07
     service_id: pipeline
+form:
+  pipeline:
+    parameters:
+      helm-chart-name: memcached-operator-chart
+      cluster-namespace: tron
+    schema:
+      $ref: cicd_ui.json
