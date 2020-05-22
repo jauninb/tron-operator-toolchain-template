@@ -81,3 +81,13 @@ triggers:
         type: text
         value: "https://github.com/jauninb/memcached-operator-sample"
     type: manual
+  - eventListener: ansible-operator-ci-manual
+    name: ci-2-master-manual
+    properties:
+      - name: branch
+        type: text
+        value: "master2"
+      - name: repository
+        type: text
+        value: "https://github.com/jauninb/memcached-operator-sample2"
+    type: manual
