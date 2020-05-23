@@ -31,6 +31,20 @@
                 "v-type": "api-key"
             }
         },
+        "ci-molecule-scenario": {
+            "description": {
+                "$ref": "#/messages/ci.moleculeScenario"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
+        "cd-molecule-scenario": {
+            "description": {
+                "$ref": "#/messages/cd.moleculeScenario"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
         "api-key": {
             "description": {
                 "$ref": "#/messages/deploy.apikeyDescription"
@@ -146,6 +160,22 @@
                 "$ref": "#/messages/deploy.toolchain-apikey"
             },
             "key": "toolchain-api-key"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/ci.moleculeScenario"
+            },
+            "key": "ci-molecule-scenario"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/cd.moleculeScenario"
+            },
+            "key": "cd-molecule-scenario"
         },
         {
             "type": "password",
