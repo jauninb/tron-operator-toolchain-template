@@ -21,7 +21,7 @@
             "type": "string",
             "pattern": "\\S"
         },
-        "toolchain-apikey": {
+        "toolchain-api-key": {
             "description": {
                 "$ref": "#/messages/deploy.toolchainApikeyDescription"
             },
@@ -31,7 +31,7 @@
                 "v-type": "api-key"
             }
         },
-        "apikey": {
+        "api-key": {
             "description": {
                 "$ref": "#/messages/deploy.apikeyDescription"
             },
@@ -50,7 +50,7 @@
             "validator": {
                 "v-type": "k8s-region",
                 "params": [
-                    "apikey"
+                    "api-key"
                 ]
             }
         },
@@ -77,7 +77,7 @@
             "validator": {
                 "v-type": "k8s-region",
                 "params": [
-                    "apikey"
+                    "api-key"
                 ]
             }
         },
@@ -89,7 +89,7 @@
             "validator": {
                 "v-type": "resource-group",
                 "params": [
-                    "apikey"
+                    "api-key"
                 ]
             }
         },
@@ -117,8 +117,8 @@
     },
     "required": [
         "helm-chart-name",
-        "toolchain-apikey",
-        "apikey",
+        "toolchain-api-key",
+        "api-key",
         "registry-region",
         "registry-namespace",
         "prod-region",
@@ -145,7 +145,7 @@
             "title": {
                 "$ref": "#/messages/deploy.toolchain-apikey"
             },
-            "key": "toolchain-apikey"
+            "key": "toolchain-api-key"
         },
         {
             "type": "password",
@@ -153,7 +153,7 @@
             "title": {
                 "$ref": "#/messages/deploy.apikey"
             },
-            "key": "apikey"
+            "key": "api-key"
         },
         {
             "type": "table",
