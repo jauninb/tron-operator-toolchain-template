@@ -9,9 +9,10 @@ toolchainApikey: "IBM Cloud API key (used for Toolchain access)"
 toolchainApikeyDescription: "The IBM Cloud API key is used to interact with the toolchain. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam#/apikeys by clicking **Create API key** (Each API key only can be viewed once)."
 
 cd.cluster: "Cluster name"
+cd.clusterDescription: "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud ks clusters' or via the [console](https://cloud.ibm.com/kubernetes/clusters)."
 cd.clusterNameDescription: "The name of the cluster. Retrieve it with [ibmcloud ks clusters] or via the console at https://cloud.ibm.com/kubernetes/clusters."
 cd.clusterNamespace: "Cluster namespace"
-cd.clusterNamespaceDescription: "Deployment namespace"
+cd.clusterNamespaceDescription: "If the cluster namespace doesn't exist already, it will be automatically created and configured."
 cd.moleculeScenario: "Molecule scenario (CD)"
 cd.region: "Region"
 cd.regionDescription: "The IBM Cloud region for deployment"
@@ -25,11 +26,6 @@ ci.containerRegistryRegion: "Container registry region"
 ci.moleculeScenario: "Molecule scenario (CI)"
 ci.registryRegionDescription: "The IBM Cloud region for image registry"
 ci.registryNamespaceDescription: "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry?topic=registry-getting-started#getting-started."
-
-cd.clusterDescription: "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud ks clusters' or via the [console](https://cloud.ibm.com/kubernetes/clusters)."
-cd.clusternsDescription: "If the cluster namespace doesn't exist already, it will be automatically created and configured."
-
-
 
 
 deploy.title: "Hello World Deploy Stage"

@@ -3,15 +3,6 @@
     "messages": {
         "$i18n": "locales.yml"
     },
-    "title": {
-        "$ref": "#/messages/deploy.title"
-    },
-    "description": {
-        "$ref": "#/messages/deploy.description"
-    },
-    "longDescription": {
-        "$ref": "#/messages/deploy.longDescription"
-    },
     "type": "object",
     "properties": {
         "helm-chart-name": {

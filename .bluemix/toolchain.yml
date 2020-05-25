@@ -101,6 +101,11 @@ form:
   pipeline:
     parameters:
       helm-chart-name: memcached-operator-chart
-      cluster-namespace: tron
+      deploy-cluster-namespace: tron
+      artifactory-server-url: "https://na.artifactory.swg-devops.com/artifactory"
+      artifactory-repository: "wcp-watson-core-incubator-helm-virtual"
+      artifactory-repository-path: "tron/jauninb"
+      ci-molecule-scenario: test-local
+      cd-molecule-scenario: test-cluster
     schema:
       $ref: cicd_ui.json
