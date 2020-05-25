@@ -94,7 +94,7 @@ properties:
   - name: tron-cd-trigger-webhook
     type: text
     value: ""
-  - name: X-tron-ci_cd-token
+  - name: tron-cd-token
     type: secure
     value: ""
 triggers:
