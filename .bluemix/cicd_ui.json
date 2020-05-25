@@ -187,15 +187,11 @@
         },
         {
             "type": "table",
-            "columnCount": 7,
+            "columnCount": 3,
             "widths": [
-                "24%",
+                "49%",
                 "2%",
-                "24%",
-                "3%",
-                "23%",
-                "1%",
-                "23%"
+                "49%"
             ],
             "items": [
                 {
@@ -209,8 +205,17 @@
                     "title": ""
                 },
                 {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/cd.moleculeScenario"
+                    }
+                },
+                {
                     "type": "text",
                     "readonly": false,
+                    "title": {
+                        "$ref": "#/messages/ci.moleculeScenario"
+                    },
                     "key": "ci-molecule-scenario"
                 },
                 {
@@ -218,18 +223,11 @@
                     "title": ""
                 },
                 {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/cd.moleculeScenario"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
                     "type": "text",
                     "readonly": false,
+                    "title": {
+                        "$ref": "#/messages/cd.moleculeScenario"
+                    },
                     "key": "cd-molecule-scenario"
                 }
             ]
