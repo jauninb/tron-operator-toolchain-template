@@ -79,7 +79,7 @@ properties:
     # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
     # type: secure
     type: SECURE
-    value: ${artifactory-apikey}
+    value: ${api-key}
   - name: registry-region
     type: text
     value: ${registry-region}

@@ -2,13 +2,13 @@
 template.name: "Develop Ansible operator with operator-sdk and molecule"
 template.description: "With this toolchain, you will be able Develop Ansible operator with operator-sdk and molecule."
 template.gettingStarted: |
-  **Your toolchain is almost ready ! Final steps:**
-  Create a generic webhook to trigger the deployment and test part of the process.
-  Copy the Webhook URL to the Environment Property `tron-cd-token`.
-  Copy the Secret to the Environment Property `tron-cd-token`.
-  Set the **Token source** to `Header`.
-  Set the **Header Key Name** to `X-tron-ci_cd-token`.
-  Add the trigger properties to the webhok: `ansible-operator-configs-repository` and `ansible-operator-configs-branch` with the same values as the `test-operator-manual` trigger.
+  **Your toolchain is almost ready ! Final steps:**\n
+  Create a generic webhook to trigger the deployment and test part of the process.\n
+  Copy the Webhook URL to the Environment Property **tron-cd-token**.\n
+  Copy the Secret to the Environment Property **tron-cd-token**.\n
+  Set the **Token source** to **Header**.\n
+  Set the **Header Key Name** to **X-tron-ci_cd-token**.\n
+  Add the trigger properties to the webhok: **ansible-operator-configs-repository** and **ansible-operator-configs-branch** with the same values as the **test-operator-manual** trigger.
 
 # cicd pipeline
 operatorNameDescription: "The name of your operator. This name is used for the image name"
