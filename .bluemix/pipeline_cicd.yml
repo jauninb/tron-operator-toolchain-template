@@ -67,19 +67,19 @@ properties:
     value: us.icr.io/jauninb-tron/memcached-operator
   - name: registry-region
     type: text
-    value: ${deploy-registry-region}
+    value: ${registry-region}
   - name: registry-namespace
     type: text
-    value: ${deploy-registry-namespace}
+    value: ${registry-namespace}
   - name: deploy-region
     type: text
     value: ${deploy-region}
   - name: deploy-resource-group
     type: text
     value: ${deploy-resource-group}
-  - name: test-cluster-name
+  - name: deploy-cluster-name
     type: text
-    value: ${test-cluster-name}
+    value: ${deploy-cluster-name}
   - name: deploy-namespace
     type: text
     value: ${deploy-namespace}
