@@ -14,7 +14,7 @@
         },
         "ansible-roles-path": {
             "description": {
-                "$ref": "#/messages/ansibleRolesPathDescription"
+                "$ref": "#/messages/ci.ansibleRolesPathDescription"
             },
             "type": "string",
             "pattern": "\\S"
@@ -180,7 +180,7 @@
             "type": "text",
             "readonly": false,
             "title": {
-                "$ref": "#/messages/ansibleRolesPath"
+                "$ref": "#/messages/ci.ansibleRolesPath"
             },
             "key": "ansible-roles-path"
         },
