@@ -14,7 +14,7 @@
         },
         "ansible-roles-path": {
             "description": {
-                "$ref": "#/messages/ansibleRolesPathDescription"
+                "$ref": "#/messages/ansibleRolesPath"
             },
             "type": "string",
             "pattern": "\\S"
