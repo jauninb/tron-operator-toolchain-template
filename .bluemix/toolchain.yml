@@ -99,6 +99,10 @@ services:
           artifactory-username: "{{form.pipeline.parameters.artifactory-username}}"
           toolchain-api-key: "{{form.pipeline.parameters.toolchain-api-key}}"
           api-key: "{{form.pipeline.parameters.api-key}}"
+          registry-region: "{{form.pipeline.parameters.registry-region}}"
+          registry-namespace: "{{form.pipeline.parameters.registry-namespace}}"
+          deploy-region: "{{form.pipeline.parameters.deploy-region}}"
+          deploy-resource-group: "{{form.pipeline.parameters.deploy-resource-group}}"
           test-cluster-name: "{{form.pipeline.parameters.deploy-cluster-name}}"
           deploy-namespace: "{{form.pipeline.parameters.deploy-cluster-namespace}}"
         content:
