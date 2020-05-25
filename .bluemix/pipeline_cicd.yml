@@ -27,7 +27,9 @@ private_worker: ${private_worker07}
 properties:
   # Properties to build operator and test it
   - name: toolchain-apikey
-    type: secure
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
     value: ${toolchain-api-key}
   #
   - name: helm-chart
@@ -56,11 +58,15 @@ properties:
     type: text
     value: ${artifactory-username}
   - name: artifactory-apikey
-    type: secure
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
     value: ${artifactory-api-key}
   #
   - name: apikey
-    type: secure
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
     value: ${artifactory-apikey}
   - name: registry-region
     type: text
@@ -85,17 +91,23 @@ properties:
     value: ${deploy-namespace}
   #
   - name: github-ibm-com-id_rsa-base64
-    type: secure
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
     value: ""
   - name: github-ibm-com-id_rsa-pub
-    type: secure
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
     value: ""
   #
   - name: tron-cd-trigger-webhook
     type: text
     value: ""
   - name: tron-cd-token
-    type: secure
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
     value: ""
 triggers:
   - type: manual
