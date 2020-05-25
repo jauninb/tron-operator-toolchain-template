@@ -1,4 +1,4 @@
-version: 2
+version: '2'
 messages:
   $i18n: locales.yml
 template:
@@ -29,19 +29,19 @@ toolchain:
 services:
   # operator repository
   git_operator:
+    service_id: >
+      $env.source_provider ? $env.source_provider : 'githubconsolidated'
     parameters:
-      label: memcached-operator-sample
       type: link
       git_id: github
       repo_url: https://github.com/jauninb/memcached-operator-sample.git
-      private_repo: false
       has_issues: false
       enable_traceability: false
       owner_id: jauninb
       repo_name: memcached-operator-sample
-    service_id: githubconsolidated
   # operator configurations deployment repository
   git_operator_configs:
+    service_id: github_integrated
     parameters:
       label: demo-operator-configs
       type: link
@@ -53,7 +53,6 @@ services:
       has_issues: false
       enable_traceability: false
       git_id: integrated
-    service_id: github_integrated
   # tekton definitions
   github_tektoncatalog:
     parameters:
