@@ -32,51 +32,44 @@ services:
     service_id: >
       $env.source_provider ? $env.source_provider : 'githubconsolidated'
     parameters:
-      type: link
-      git_id: github
-      repo_url: https://github.com/jauninb/memcached-operator-sample.git
+      repo_name: memcached-operator-sample
+      type: $env.type || 'link'
+      legal: true
+      repo_url: >
+        $env.source_provider == 'github_integrated' ?
+          "https://github.ibm.com/jaunin-b/tron-example-operator" : "https://github.com/jauninb/memcached-operator-sample.git"
       has_issues: false
       enable_traceability: false
-      owner_id: jauninb
-      repo_name: memcached-operator-sample
   # operator configurations deployment repository
   git_operator_configs:
     service_id: github_integrated
     parameters:
-      label: demo-operator-configs
-      type: link
-      legal: true
-      owner_id: watson-deploy-configs
       repo_name: demo-operator-configs
-      repo_url: https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git
-      private_repo: false
+      type: $env.type || 'link'
+      legal: true
+      repo_url: > 
+        $env.source_provider == 'github_integrated' ?
+          "https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git" : "https://github.com/jauninb/tron-operator-toolchain-template"
       has_issues: false
       enable_traceability: false
-      git_id: integrated
   # tekton definitions
   github_tektoncatalog:
     parameters:
-      label: tekton-catalog
       type: link
-      git_id: github
       repo_url: https://github.com/open-toolchain/tekton-catalog.git
       has_issues: false
       enable_traceability: false
-      owner_id: open-toolchain
       repo_name: tekton-catalog
     service_id: githubconsolidated
   github_tron_tektondefinitions:
     parameters:
-      label: tron-operator-tekton-definitions
       type: link
       legal: true
       owner_id: jaunin-b
       repo_name: tron-operator-tekton-definitions
       repo_url: https://github.ibm.com/jaunin-b/tron-operator-tekton-definitions.git
-      private_repo: false
       has_issues: false
       enable_traceability: false
-      git_id: integrated
     service_id: github_integrated
   slack:
     service_id: slack
