@@ -25,7 +25,8 @@ toolchain:
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted"
-  name: "ansible-operator-ci_cd-{{timestamp}}"
+  name: >
+    $env.source_provider == 'github_integrated' ? "ansible-tron-operator-ci_cd-{{timestamp}}" : "ansible-memcached-ci_cd-{{timestamp}}"
 services:
   # operator repository
   git_operator:
