@@ -10,7 +10,7 @@ template:
     - github_tron_tektondefinitions
     - github_tektoncatalog
     - git_operator
-    - private_worker07
+    - private_worker
     - slack
     - pipeline09
   info:
@@ -76,7 +76,7 @@ services:
     service_id: slack
   devops_insights:
     service_id: draservicebroker
-  private_worker07:
+  private_worker:
     service_id: private_worker
   pipeline09:
     parameters:
@@ -91,7 +91,7 @@ services:
           git_operator_configs: git_operator_configs
           operator_repository_url: "{{services.git_operator.parameters.repo_url}}"
           operator_configs_repository_url: "{{services.git_operator_configs.parameters.repo_url}}"
-          private_worker07: "{{services.private_worker07.parameters.name}}"
+          private_worker: "{{services.private_worker.parameters.name}}"
           operator-name: "{{form.pipeline.parameters.operator-name}}"
           helm-chart-name: "{{form.pipeline.parameters.helm-chart-name}}"
           ansible-roles-path: "{{form.pipeline.parameters.ansible-roles-path}}"
@@ -110,6 +110,8 @@ services:
           deploy-resource-group: "{{form.pipeline.parameters.deploy-resource-group}}"
           deploy-cluster-name: "{{form.pipeline.parameters.deploy-cluster-name}}"
           deploy-namespace: "{{form.pipeline.parameters.deploy-cluster-namespace}}"
+          set-up-script: "{{form.pipeline.parameters.set-up-script}}"
+          tear-down-script: "{{form.pipeline.parameters.tear-down-script}}"
         content:
           $text: pipeline_cicd.yml
       services:
@@ -117,7 +119,7 @@ services:
         - github_tektoncatalog
         - git_operator
         - git_operator_configs
-        - private_worker07
+        - private_worker
     service_id: pipeline
 form:
   pipeline:
@@ -136,5 +138,9 @@ form:
       ci-molecule-scenario: > 
         $env.source_provider == 'github_integrated' ? "unit-tests" : "test-local"
       cd-molecule-scenario: test-cluster
+      set-up-script: > 
+        $env.source_provider == 'github_integrated' ? "scripts/set-up.sh test-templates" : ""
+      tear-down-script: > 
+        $env.source_provider == 'github_integrated' ? "scripts/tear-down.sh" : ""
     schema:
       $ref: cicd_ui.json

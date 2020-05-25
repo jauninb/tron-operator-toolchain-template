@@ -23,7 +23,7 @@ inputs:
     path: devops-insights
     type: git
     service: ${github_tektoncatalog}
-private_worker: ${private_worker07}
+private_worker: ${private_worker}
 properties:
   # Properties to build operator and test it
   - name: toolchain-apikey
@@ -101,13 +101,13 @@ properties:
   - name: deploy-namespace
     type: text
     value: ${deploy-namespace}
-  # 
+  #
   - name: set-up-script
     type: text
-    value: ""    
+    value: ${set-up-script}
   - name: tear-down-script
     type: text
-    value: ""    
+    value: ${tear-down-script}
   #
   - name: tron-cd-trigger-webhook
     type: text
