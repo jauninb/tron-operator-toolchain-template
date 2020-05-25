@@ -30,7 +30,7 @@ services:
   # operator repository
   git_operator:
     service_id: >
-      $env.source_provider ? $env.source_provider : 'hostedgit'
+      $env.source_provider ? $env.source_provider : 'githubconsolidated'
     parameters:
       repo_name: memcached-operator-sample
       type: $env.type || 'link'
@@ -41,7 +41,8 @@ services:
       enable_traceability: false
   # operator configurations deployment repository
   git_operator_configs:
-    service_id: github_integrated
+    service_id: >
+      $env.source_provider ? $env.source_provider : 'githubconsolidated'
     parameters:
       repo_name: demo-operator-configs
       type: $env.type || 'link'
