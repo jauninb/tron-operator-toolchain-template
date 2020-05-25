@@ -103,7 +103,7 @@
                 "validate": false
             }
         },
-        "prod-region": {
+        "deploy-region": {
             "description": {
                 "$ref": "#/messages/region"
             },
@@ -116,7 +116,7 @@
                 ]
             }
         },
-        "prod-resource-group": {
+        "deploy-resource-group": {
             "description": {
                 "$ref": "#/messages/deploy.rg"
             },
@@ -128,7 +128,7 @@
                 ]
             }
         },
-        "prod-cluster-name": {
+        "deploy-cluster-name": {
             "description": {
                 "$ref": "#/messages/deploy.cluster"
             },
@@ -137,12 +137,12 @@
             "validator": {
                 "v-type": "k8s-cluster-name",
                 "params": [
-                    "prod-resource-group",
-                    "prod-region"
+                    "deploy-resource-group",
+                    "deploy-region"
                 ]
             }
         },
-        "prod-cluster-namespace": {
+        "deploy-cluster-namespace": {
             "description": {
                 "$ref": "#/messages/deploy.clusterNs"
             },
@@ -159,10 +159,10 @@
         "api-key",
         "registry-region",
         "registry-namespace",
-        "prod-region",
-        "prod-resource-group",
-        "prod-cluster-name",
-        "prod-cluster-namespace"
+        "deploy-region",
+        "deploy-resource-group",
+        "deploy-cluster-name",
+        "deploy-cluster-namespace"
     ],
     "form": [
         {
@@ -181,11 +181,11 @@
             "type": "table",
             "columnCount": 5,
             "widths": [
-                "24%",
+                "40%",
                 "2%",
-                "24%",
+                "28%",
                 "2%",
-                "23%"
+                "28%"
             ],
             "items": [
                 {
@@ -314,7 +314,7 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/deploy.containerregRegion"
+                        "$ref": "#/messages/ci.containerRegistryRegion"
                     }
                 },
                 {
@@ -324,13 +324,13 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/deploy.containerregns"
+                        "$ref": "#/messages/ci.containerRegistryNamespace"
                     }
                 },
                 {
                     "type": "select",
                     "title": {
-                        "$ref": "#/messages/deploy.containerregRegion"
+                        "$ref": "#/messages/ci.containerRegistryRegion"
                     },
                     "key": "registry-region"
                 },
@@ -342,7 +342,7 @@
                     "type": "select",
                     "readonly": false,
                     "title": {
-                        "$ref": "#/messages/deploy.containerregns"
+                        "$ref": "#/messages/ci.containerRegistryNamespace"
                     },
                     "key": "registry-namespace"
                 }
@@ -364,7 +364,7 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/region"
+                        "$ref": "#/messages/cd.region"
                     }
                 },
                 {
@@ -374,7 +374,7 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/deploy.rg"
+                        "$ref": "#/messages/cd.resourceGroup"
                     }
                 },
                 {
@@ -384,7 +384,7 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/deploy.cluster"
+                        "$ref": "#/messages/cd.cluster"
                     }
                 },
                 {
@@ -394,12 +394,12 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/deploy.clusterNs"
+                        "$ref": "#/messages/cd.clusterNamespace"
                     }
                 },
                 {
                     "type": "select",
-                    "key": "prod-region"
+                    "key": "deploy-region"
                 },
                 {
                     "type": "label",
@@ -407,7 +407,7 @@
                 },
                 {
                     "type": "select",
-                    "key": "prod-resource-group",
+                    "key": "deploy-resource-group",
                     "readonly": false
                 },
                 {
@@ -416,7 +416,7 @@
                 },
                 {
                     "type": "select",
-                    "key": "prod-cluster-name",
+                    "key": "deploy-cluster-name",
                     "readonly": false
                 },
                 {
@@ -425,7 +425,7 @@
                 },
                 {
                     "type": "text",
-                    "key": "prod-cluster-namespace",
+                    "key": "deploy-cluster-namespace",
                     "readonly": false
                 }
             ]
