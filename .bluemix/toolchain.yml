@@ -100,6 +100,7 @@ services:
 form:
   pipeline:
     parameters:
+      ansible-roles-path: "./roles/Memcached"
       helm-chart-name: memcached-operator-chart
       deploy-cluster-namespace: tron
       artifactory-server-url: "https://na.artifactory.swg-devops.com/artifactory"

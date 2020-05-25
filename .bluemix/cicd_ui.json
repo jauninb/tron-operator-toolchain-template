@@ -12,6 +12,13 @@
             "type": "string",
             "pattern": "\\S"
         },
+        "ansible-roles-path": {
+            "description": {
+                "$ref": "#/messages/ansibleRolesPathDescription"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
         "toolchain-api-key": {
             "description": {
                 "$ref": "#/messages/toolchainApikeyDescription"
@@ -143,6 +150,7 @@
     },
     "required": [
         "helm-chart-name",
+        "ansible-roles-path",
         "toolchain-api-key",
         "artifactory-server-url",
         "artifactory-repository",
@@ -161,12 +169,31 @@
             "url": "/devops/validator/validator-v1.html"
         },
         {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/operatorHelmChartName"
-            },
-            "key": "helm-chart-name"
+            "type": "table",
+            "columnCount": 3,
+            "widths": [
+                "49%",
+                "2%",
+                "49%"
+            ],
+            "items": [
+                {
+                    "type": "text",
+                    "readonly": false,
+                    "title": {
+                        "$ref": "#/messages/operatorHelmChartName"
+                    },
+                    "key": "helm-chart-name"
+                },
+                {
+                    "type": "text",
+                    "readonly": false,
+                    "title": {
+                        "$ref": "#/messages/ansibleRolesPath"
+                    },
+                    "key": "ansible-roles-path"
+                }
+            ]
         },
         {
             "type": "table",
