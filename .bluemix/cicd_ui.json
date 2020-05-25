@@ -169,31 +169,20 @@
             "url": "/devops/validator/validator-v1.html"
         },
         {
-            "type": "table",
-            "columnCount": 3,
-            "widths": [
-                "49%",
-                "2%",
-                "49%"
-            ],
-            "items": [
-                {
-                    "type": "text",
-                    "readonly": false,
-                    "title": {
-                        "$ref": "#/messages/operatorHelmChartName"
-                    },
-                    "key": "helm-chart-name"
-                },
-                {
-                    "type": "text",
-                    "readonly": false,
-                    "title": {
-                        "$ref": "#/messages/ansibleRolesPath"
-                    },
-                    "key": "ansible-roles-path"
-                }
-            ]
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/operatorHelmChartName"
+            },
+            "key": "helm-chart-name"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/ansibleRolesPath"
+            },
+            "key": "ansible-roles-path"
         },
         {
             "type": "table",
