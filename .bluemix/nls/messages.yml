@@ -2,7 +2,7 @@
 template.name: "Develop Ansible operator with operator-sdk and molecule"
 template.description: "With this toolchain, you will be able Develop Ansible operator with operator-sdk and molecule."
 template.gettingStarted: |
-  **Your toolchain is almost ready !** Look at the README.md for the [finalization steps](https://github.com/jauninb/tron-operator-toolchain-template#final-steps---post-creation-update)"
+  **Your toolchain is almost ready !** Look at the README.md for the [finalization steps](https://github.com/jauninb/tron-operator-toolchain-template#final-steps---post-creation-update)
 
 # cicd pipeline
 operatorNameDescription: "The name of your operator. This name is used for the image name"
