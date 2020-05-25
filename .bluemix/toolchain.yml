@@ -30,11 +30,10 @@ services:
   # operator repository
   git_operator:
     service_id: >
-      $env.source_provider ? $env.source_provider : 'githubconsolidated'
+      $env.source_provider ? $env.source_provider : 'hostedgit'
     parameters:
       repo_name: memcached-operator-sample
       type: $env.type || 'link'
-      legal: true
       repo_url: >
         $env.source_provider == 'github_integrated' ?
           "https://github.ibm.com/jaunin-b/tron-example-operator" : "https://github.com/jauninb/memcached-operator-sample.git"
@@ -46,7 +45,6 @@ services:
     parameters:
       repo_name: demo-operator-configs
       type: $env.type || 'link'
-      legal: true
       repo_url: > 
         $env.source_provider == 'github_integrated' ?
           "https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git" : "https://github.com/jauninb/tron-operator-toolchain-template"
