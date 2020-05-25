@@ -88,8 +88,9 @@ services:
           operator_repository_url: "{{services.git_operator.parameters.repo_url}}"
           operator_configs_repository_url: "{{services.git_operator_configs.parameters.repo_url}}"
           private_worker07: "{{services.private_worker07.parameters.name}}"
-          ansible-roles-path: "{{form.pipeline.parameters.ansible-roles-path}}"
+          operator-name: "{{form.pipeline.parameters.operator-name}}"
           helm-chart-name: "{{form.pipeline.parameters.helm-chart-name}}"
+          ansible-roles-path: "{{form.pipeline.parameters.ansible-roles-path}}"
           molecule-scenario-ci-test: "{{form.pipeline.parameters.ci-molecule-scenario}}"
           molecule-scenario-cd-test: "{{form.pipeline.parameters.cd-molecule-scenario}}"
           artifactory-server-url: "{{form.pipeline.parameters.artifactory-server-url}}"
@@ -103,7 +104,7 @@ services:
           registry-namespace: "{{form.pipeline.parameters.registry-namespace}}"
           deploy-region: "{{form.pipeline.parameters.deploy-region}}"
           deploy-resource-group: "{{form.pipeline.parameters.deploy-resource-group}}"
-          test-cluster-name: "{{form.pipeline.parameters.deploy-cluster-name}}"
+          deploy-cluster-name: "{{form.pipeline.parameters.deploy-cluster-name}}"
           deploy-namespace: "{{form.pipeline.parameters.deploy-cluster-namespace}}"
         content:
           $text: pipeline_cicd.yml
@@ -117,6 +118,7 @@ services:
 form:
   pipeline:
     parameters:
+      operator-name: memcached-operator
       ansible-roles-path: "./roles/Memcached"
       helm-chart-name: memcached-operator-chart
       deploy-cluster-namespace: tron

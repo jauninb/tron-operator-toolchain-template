@@ -62,15 +62,15 @@ properties:
   - name: apikey
     type: secure
     value: ${artifactory-apikey}
-  - name: operator-image-url
-    type: text
-    value: us.icr.io/jauninb-tron/memcached-operator
   - name: registry-region
     type: text
     value: ${registry-region}
   - name: registry-namespace
     type: text
     value: ${registry-namespace}
+  - name: operator-name
+    type: text
+    value: ${operator-name}
   - name: deploy-region
     type: text
     value: ${deploy-region}

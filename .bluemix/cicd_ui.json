@@ -5,6 +5,13 @@
     },
     "type": "object",
     "properties": {
+        "operator-name": {
+            "description": {
+                "$ref": "#/messages/operatorNameDescription"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
         "helm-chart-name": {
             "description": {
                 "$ref": "#/messages/operatorHelmChartDescription"
@@ -163,6 +170,7 @@
         }
     },
     "required": [
+        "operator-name",
         "helm-chart-name",
         "ansible-roles-path",
         "toolchain-api-key",
@@ -188,9 +196,9 @@
             "type": "text",
             "readonly": false,
             "title": {
-                "$ref": "#/messages/operatorHelmChartName"
+                "$ref": "#/messages/operatorName"
             },
-            "key": "helm-chart-name"
+            "key": "operator-name"
         },
         {
             "type": "text",
@@ -199,6 +207,14 @@
                 "$ref": "#/messages/ci.ansibleRolesPath"
             },
             "key": "ansible-roles-path"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/operatorHelmChartName"
+            },
+            "key": "helm-chart-name"
         },
         {
             "type": "table",
