@@ -2,7 +2,11 @@
 template.name: "Develop Ansible operator with operator-sdk and molecule"
 template.description: "With this toolchain, you will be able Develop Ansible operator with operator-sdk and molecule."
 template.gettingStarted: "**Your toolchain is almost ready!**\nUpdate the pipeline properties with..."
+
 # cicd pipeline
+operatorHelmChartDescription: "The name of your operator helm chart"
+operatorHelmChartName: "Operator Helm chart name"
+
 apikey: "IBM Cloud API key"
 apikeyDescription: "The IBM Cloud API key is used to access the IBM Cloud Kubernetes Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam#/apikeys by clicking **Create API key** (Each API key only can be viewed once)."
 toolchainApikey: "IBM Cloud API key (used for Toolchain access)"
@@ -26,11 +30,3 @@ ci.containerRegistryRegion: "Container registry region"
 ci.moleculeScenario: "Molecule scenario (CI)"
 ci.registryRegionDescription: "The IBM Cloud region for image registry"
 ci.registryNamespaceDescription: "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry?topic=registry-getting-started#getting-started."
-
-
-deploy.title: "Hello World Deploy Stage"
-deploy.description: "hello-world simple toolchain"
-deploy.longDescription: "The Delivery Pipeline automates continuous build, test and deploy of the Docker application."
-deploy.helmChartDescription: "The name of your operator helm chart"
-deploy.helmChartName: "Operator Helm chart name"
-
