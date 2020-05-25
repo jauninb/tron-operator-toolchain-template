@@ -64,6 +64,13 @@
             "type": "string",
             "pattern": "\\S"
         },
+        "artifactory-api-key": {
+            "description": {
+                "$ref": "#/messages/ci.artifactoryApikeyDescription"
+            },
+            "type": "string",
+            "pattern": "\\S",
+        },
         "api-key": {
             "description": {
                 "$ref": "#/messages/apikeyDescription"
@@ -155,6 +162,8 @@
         "artifactory-server-url",
         "artifactory-repository",
         "artifactory-repository-path",
+        "artifactory-api-key",
+        "artifactory-username",
         "api-key",
         "registry-region",
         "registry-namespace",
@@ -243,6 +252,53 @@
                     "type": "text",
                     "key": "artifactory-repository-path",
                     "readonly": false
+                }
+            ]
+        },
+        {
+            "type": "table",
+            "columnCount": 3,
+            "widths": [
+                "49%",
+                "2%",
+                "49%"
+            ],
+            "items": [
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/ci.artifactoryUsername"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/ci.artifactoryApiKey"
+                    }
+                },
+                {
+                    "type": "password",
+                    "readonly": false,
+                    "title": {
+                        "$ref": "#/messages/ci.artifactoryUsername"
+                    },
+                    "key": "artifactory-username"
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "password",
+                    "readonly": false,
+                    "title": {
+                        "$ref": "#/messages/ci.artifactoryApiKey"
+                    },
+                    "key": "artifactory-api-key"
                 }
             ]
         },

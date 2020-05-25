@@ -26,48 +26,59 @@ inputs:
 private_worker: ${private_worker07}
 properties:
   # Properties to build operator and test it
-  - name: helm-chart
-    type: text
-    value: "memcached-operator-chart"
-  - name: ansible-roles-path
-    type: text
-    value: ./roles/Memcached
-  - name: molecule-scenario-ci-test
-    type: text
-    value: "test-local"
-  - name: molecule-scenario-cd-test
-    type: text
-    value: "test-cluster"
   - name: toolchain-apikey
     type: secure
-    value: ""
+    value: ${toolchain-api-key}
+  #
+  - name: helm-chart
+    type: text
+    value: ${helm-chart-name}
+  - name: ansible-roles-path
+    type: text
+    value: ${ansible-roles-path}
+  - name: molecule-scenario-ci-test
+    type: text
+    value: ${molecule-scenario-ci-test}
+  - name: molecule-scenario-cd-test
+    type: text
+    value: ${molecule-scenario-cd-test}
+  #
+  - name: artifactory-server-url
+    type: text
+    value: ${artifactory-server-url}
+  - name: artifactory-repository
+    type: text
+    value: ${artifactory-repository}
+  - name: artifactory-repository-path
+    type: text
+    value: ${artifactory-repository-path}
+  - name: helm-repository-username
+    type: text
+    value: ${artifactory-username}
+  - name: artifactory-apikey
+    type: secure
+    value: ${artifactory-api-key}
+  #
   - name: apikey
     type: secure
-    value: ""
+    value: ${artifactory-apikey}
   - name: operator-image-url
     type: text
     value: us.icr.io/jauninb-tron/memcached-operator
-  - name: artifactory-repository-path
+  - name: test-cluster-name
     type: text
-    value: tron/jauninb
-  - name: helm-repository-username
-    type: text
-    value: jaunin.b@fr.ibm.com
-  - name: artifactory-apikey
-    type: secure
-    value: ""
+    value: ${test-cluster-name}
   - name: deploy-namespace
     type: text
-    value: tron-memcached
+    value: ${deploy-namespace}
+  #
   - name: github-ibm-com-id_rsa-base64
     type: secure
     value: ""
   - name: github-ibm-com-id_rsa-pub
     type: secure
     value: ""
-  - name: test-cluster-name
-    type: text
-    value: mycluster
+  #
   - name: tron-cd-trigger-webhook
     type: text
     value: ""

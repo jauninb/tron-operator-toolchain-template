@@ -85,9 +85,22 @@ services:
           github_tektoncatalog: github_tektoncatalog
           git_operator: git_operator
           git_operator_configs: git_operator_configs
-          operator_repository_url: '{{services.git_operator.parameters.repo_url}}'
-          operator_configs_repository_url: '{{services.git_operator_configs.parameters.repo_url}}'
+          operator_repository_url: "{{services.git_operator.parameters.repo_url}}"
+          operator_configs_repository_url: "{{services.git_operator_configs.parameters.repo_url}}"
           private_worker07: "{{services.private_worker07.parameters.name}}"
+          ansible-roles-path: "{{form.pipeline.parameters.ansible-roles-path}}"
+          helm-chart-name: "{{form.pipeline.parameters.helm-chart-name}}"
+          molecule-scenario-ci-test: "{{form.pipeline.parameters.ci-molecule-scenario}}"
+          molecule-scenario-cd-test: "{{form.pipeline.parameters.cd-molecule-scenario}}"
+          artifactory-server-url: "{{form.pipeline.parameters.artifactory-server-url}}"
+          artifactory-repository: "{{form.pipeline.parameters.artifacts-repository}}"
+          artifactory-repository-path: "{{form.pipeline.parameters.artifacts-repository-path}}"
+          artifactory-api-key: "{{form.pipeline.parameters.artifactory-api-key}}"
+          artifactory-username: "{{form.pipeline.parameters.artifactory-username}}"
+          toolchain-api-key: "{{form.pipeline.parameters.toolchain-api-key}}"
+          api-key: "{{form.pipeline.parameters.api-key}}"
+          test-cluster-name: "{{form.pipeline.parameters.deploy-cluster-name}}"
+          deploy-namespace: "{{form.pipeline.parameters.deploy-cluster-namespace}}"
         content:
           $text: pipeline_cicd.yml
       services:
@@ -106,6 +119,7 @@ form:
       artifactory-server-url: "https://na.artifactory.swg-devops.com/artifactory"
       artifactory-repository: "wcp-watson-core-incubator-helm-virtual"
       artifactory-repository-path: "tron/jauninb"
+      artifactory-username: "jaunin.b@fr.ibm.com"
       ci-molecule-scenario: test-local
       cd-molecule-scenario: test-cluster
     schema:
