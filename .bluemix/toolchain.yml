@@ -33,24 +33,26 @@ services:
       $env.source_provider ? $env.source_provider : 'githubconsolidated'
     parameters:
       repo_name: memcached-operator-sample
-      type: $env.type || 'link'
+      type: link
       repo_url: >
         $env.source_provider == 'github_integrated' ?
           "https://github.ibm.com/jaunin-b/tron-example-operator" : "https://github.com/jauninb/memcached-operator-sample.git"
       has_issues: false
       enable_traceability: false
+      legal: true
   # operator configurations deployment repository
   git_operator_configs:
     service_id: >
       $env.source_provider ? $env.source_provider : 'githubconsolidated'
     parameters:
       repo_name: demo-operator-configs
-      type: $env.type || 'link'
+      type: link
       repo_url: > 
         $env.source_provider == 'github_integrated' ?
           "https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git" : "https://github.com/jauninb/tron-operator-toolchain-template"
       has_issues: false
       enable_traceability: false
+      legal: true
   # tekton definitions
   github_tektoncatalog:
     parameters:
@@ -120,15 +122,19 @@ services:
 form:
   pipeline:
     parameters:
-      operator-name: memcached-operator
-      ansible-roles-path: "./roles/Memcached"
-      helm-chart-name: memcached-operator-chart
+      operator-name: > 
+        $env.source_provider == 'github_integrated' ? "tron-operator" : "memcached-operator"
+      ansible-roles-path: > 
+        $env.source_provider == 'github_integrated' ? "./playbooks/roles" : "./roles/Memcached"
+      helm-chart-name: > 
+        $env.source_provider == 'github_integrated' ? "crd-bjn-operator-chart" : "memcached-operator-chart"
       deploy-cluster-namespace: tron
       artifactory-server-url: "https://na.artifactory.swg-devops.com/artifactory"
       artifactory-repository: "wcp-watson-core-incubator-helm-virtual"
       artifactory-repository-path: "tron/jauninb"
       artifactory-username: "jaunin.b@fr.ibm.com"
-      ci-molecule-scenario: test-local
+      ci-molecule-scenario: > 
+        $env.source_provider == 'github_integrated' ? "unit-tests" : "test-local"
       cd-molecule-scenario: test-cluster
     schema:
       $ref: cicd_ui.json
