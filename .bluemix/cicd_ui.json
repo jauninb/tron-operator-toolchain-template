@@ -45,6 +45,27 @@
             "type": "string",
             "pattern": "\\S"
         },
+        "artifactory-server-url": {
+            "description": {
+                "$ref": "#/messages/ci.artifactoryServerURL"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
+        "artifactory-repository": {
+            "description": {
+                "$ref": "#/messages/ci.artifactoryRepository"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
+        "artifactory-repository-path": {
+            "description": {
+                "$ref": "#/messages/ci.artifactoryRepositoryPath"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
         "api-key": {
             "description": {
                 "$ref": "#/messages/deploy.apikeyDescription"
@@ -132,6 +153,9 @@
     "required": [
         "helm-chart-name",
         "toolchain-api-key",
+        "artifactory-server-url",
+        "artifactory-repository",
+        "artifactory-repository-path",
         "api-key",
         "registry-region",
         "registry-namespace",
@@ -162,20 +186,53 @@
             "key": "toolchain-api-key"
         },
         {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/ci.moleculeScenario"
-            },
-            "key": "ci-molecule-scenario"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/cd.moleculeScenario"
-            },
-            "key": "cd-molecule-scenario"
+            "type": "table",
+            "columnCount": 7,
+            "widths": [
+                "24%",
+                "2%",
+                "24%",
+                "3%",
+                "23%",
+                "1%",
+                "23%"
+            ],
+            "items": [
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/ci.moleculeScenario"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "text",
+                    "readonly": false,
+                    "key": "ci-molecule-scenario"
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/cd.moleculeScenario"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "text",
+                    "readonly": false,
+                    "key": "cd-molecule-scenario"
+                }
+            ]
         },
         {
             "type": "password",
