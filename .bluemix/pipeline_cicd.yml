@@ -35,9 +35,21 @@ properties:
   - name: helm-chart
     type: text
     value: ${helm-chart-name}
+  #
+  - name: github-ibm-com-id_rsa-base64
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
+    value: ""
+  - name: github-ibm-com-id_rsa-pub
+    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
+    # type: secure
+    type: SECURE
+    value: ""
   - name: ansible-roles-path
     type: text
     value: ${ansible-roles-path}
+  #
   - name: molecule-scenario-ci-test
     type: text
     value: ${molecule-scenario-ci-test}
@@ -89,17 +101,13 @@ properties:
   - name: deploy-namespace
     type: text
     value: ${deploy-namespace}
-  #
-  - name: github-ibm-com-id_rsa-base64
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
-    value: ""
-  - name: github-ibm-com-id_rsa-pub
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
-    value: ""
+  # 
+  - name: set-up-script
+    type: text
+    value: ""    
+  - name: tear-down-script
+    type: text
+    value: ""    
   #
   - name: tron-cd-trigger-webhook
     type: text
@@ -149,6 +157,8 @@ triggers:
         type: text
         value: ${operator_repository_url}
     type: manual
+  # No way to create generic webhook from template while
+  # https://github.ibm.com/org-ids/roadmap/issues/12696 is not fixed
   # - eventListener: ansible-operator-test-webhook
   #   name: test-operator-webhook
   #   properties:

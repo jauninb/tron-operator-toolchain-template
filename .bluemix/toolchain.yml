@@ -13,12 +13,48 @@ template:
     - private_worker07
     - slack
     - pipeline09
+  info:
+    git url: >
+      "[" + $env.repository + "]" +
+        "(" + $env.repository + ")"
+    git branch: >
+      "[" + $env.branch + "]" +
+        "(" + $env.repository +
+          "/tree/" + $env.branch + ")    
 toolchain:
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted"
   name: "ansible-operator-ci_cd-{{timestamp}}"
 services:
+  # operator repository
+  git_operator:
+    parameters:
+      label: memcached-operator-sample
+      type: link
+      git_id: github
+      repo_url: https://github.com/jauninb/memcached-operator-sample.git
+      private_repo: false
+      has_issues: false
+      enable_traceability: false
+      owner_id: jauninb
+      repo_name: memcached-operator-sample
+    service_id: githubconsolidated
+  # operator configurations deployment repository
+  git_operator_configs:
+    parameters:
+      label: demo-operator-configs
+      type: link
+      legal: true
+      owner_id: watson-deploy-configs
+      repo_name: demo-operator-configs
+      repo_url: https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git
+      private_repo: false
+      has_issues: false
+      enable_traceability: false
+      git_id: integrated
+    service_id: github_integrated
+  # tekton definitions
   github_tektoncatalog:
     parameters:
       label: tekton-catalog
@@ -38,31 +74,6 @@ services:
       owner_id: jaunin-b
       repo_name: tron-operator-tekton-definitions
       repo_url: https://github.ibm.com/jaunin-b/tron-operator-tekton-definitions.git
-      private_repo: false
-      has_issues: false
-      enable_traceability: false
-      git_id: integrated
-    service_id: github_integrated
-  git_operator:
-    parameters:
-      label: memcached-operator-sample
-      type: link
-      git_id: github
-      repo_url: https://github.com/jauninb/memcached-operator-sample.git
-      private_repo: false
-      has_issues: false
-      enable_traceability: false
-      owner_id: jauninb
-      repo_name: memcached-operator-sample
-    service_id: githubconsolidated
-  git_operator_configs:
-    parameters:
-      label: demo-operator-configs
-      type: link
-      legal: true
-      owner_id: watson-deploy-configs
-      repo_name: demo-operator-configs
-      repo_url: https://github.ibm.com/watson-deploy-configs/demo-operator-configs.git
       private_repo: false
       has_issues: false
       enable_traceability: false
