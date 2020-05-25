@@ -178,6 +178,68 @@
             "key": "helm-chart-name"
         },
         {
+            "type": "table",
+            "columnCount": 5,
+            "widths": [
+                "24%",
+                "2%",
+                "24%",
+                "2%",
+                "23%"
+            ],
+            "items": [
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/ci.artifactoryServerURL"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/ci.artifactoryRepository"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/ci.artifactoryRepositoryPath"
+                    }
+                },
+                {
+                    "type": "text",
+                    "key": "artifactory-server-url",
+                    "readonly": false
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "text",
+                    "key": "artifactory-repository",
+                    "readonly": false
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "text",
+                    "key": "artifactory-repository-path",
+                    "readonly": false
+                }
+            ]
+        },
+        {
             "type": "password",
             "readonly": false,
             "title": {
