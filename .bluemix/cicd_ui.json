@@ -66,7 +66,14 @@
         },
         "artifactory-api-key": {
             "description": {
-                "$ref": "#/messages/ci.artifactoryApikeyDescription"
+                "$ref": "#/messages/ci.artifactoryApiKeyDescription"
+            },
+            "type": "string",
+            "pattern": "\\S",
+        },
+        "artifactory-username": {
+            "description": {
+                "$ref": "#/messages/ci.artifactoryUsernameDescription"
             },
             "type": "string",
             "pattern": "\\S",
@@ -281,7 +288,7 @@
                     }
                 },
                 {
-                    "type": "password",
+                    "type": "test",
                     "readonly": false,
                     "title": {
                         "$ref": "#/messages/ci.artifactoryUsername"
