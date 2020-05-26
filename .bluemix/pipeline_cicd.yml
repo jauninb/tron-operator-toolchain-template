@@ -133,7 +133,7 @@ triggers:
     eventListener: ansible-operator-ci-github-commit
     service: ${git_operator}
     branch: master
-    events: "push"
+    events: { "push": true }
   - type: manual
     eventListener: ansible-operator-test-manual
     name: test-operator-manual
@@ -155,7 +155,7 @@ triggers:
         value: "master"
       - name: molecule-tests-repository
         type: text
-        value: ${operator_repository_url}    
+        value: ${operator_repository_url}
   # No way to create generic webhook from template while
   # https://github.ibm.com/org-ids/roadmap/issues/12696 is not fixed
   # - eventListener: ansible-operator-test-webhook
