@@ -8,6 +8,7 @@
 ### Generic Webhook creation
 
 1) Create a generic webhook to trigger the deployment and test part of the process
+   - Keep the default _Token Matches_ validation
    - Select `ansible-operator-cd-webhook` as the Event Listener
    - Set the **Token source** to `Header`.
    - Set the **Header Key Name** to `X-ci-cd-operator-token`.
