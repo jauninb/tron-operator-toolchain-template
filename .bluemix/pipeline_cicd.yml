@@ -129,10 +129,10 @@ triggers:
     name: ci-master-manual
     eventListener: ansible-operator-ci-manual
     properties:
-      - name: branch
+      - name: trigger_prop-branch
         type: text
         value: "master"
-      - name: repository
+      - name: trigger_prop-repository
         type: text
         value: ${operator_repository_url}
   - type: git

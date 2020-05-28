@@ -8,15 +8,12 @@
 ### Generic Webhook creation
 
 1) Create a generic webhook to trigger the deployment and test part of the process
-   - Select `ansible-operator-test-webhook` as the Event Listener
+   - Select `ansible-operator-cd-webhook` as the Event Listener
    - Set the **Token source** to `Header`.
-   - Set the **Header Key Name** to `X-tron-ci_cd-token`.
-   - Add the trigger properties to the webhok:
-     - `ansible-operator-configs-repository` with the same value as in the **test-operator-manual** trigger.
-     - `ansible-operator-configs-branch` with the same values as in the **test-operator-manual** trigger.
+   - Set the **Header Key Name** to `X-ci-cd-operator-token`.
 
 2) Update the Environment Properties:
-   - Copy the Webhook URL to the Environment Property **tron-cd-token**
-   - Copy the Secret to the Environment Property **tron-cd-token**.
+   - Copy the Webhook URL to the Environment Property **env_prop-cd-trigger-webhook**
+   - Copy the Secret to the Secured Environment Property **ci-cd-operator-token**.
 
 3) Save the Tekton Definition
