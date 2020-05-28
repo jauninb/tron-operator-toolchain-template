@@ -32,7 +32,7 @@ properties:
     type: SECURE
     value: ${toolchain-api-key}
   #
-  - name: helm-chart
+  - name: env_prop-helm-chart
     type: text
     value: ${helm-chart-name}
   #
@@ -46,27 +46,27 @@ properties:
     # type: secure
     type: SECURE
     value: ""
-  - name: ansible-roles-path
+  - name: env_prop-ansible-roles-path
     type: text
     value: ${ansible-roles-path}
   #
-  - name: molecule-scenario-ci-test
+  - name: env_prop-molecule-scenario-ci-test
     type: text
     value: ${molecule-scenario-ci-test}
-  - name: molecule-scenario-cd-test
+  - name: env_prop-molecule-scenario-cd-test
     type: text
     value: ${molecule-scenario-cd-test}
   #
-  - name: artifactory-server-url
+  - name: env_prop-artifactory-server-url
     type: text
     value: ${artifactory-server-url}
-  - name: artifactory-repository
+  - name: env_prop-artifactory-repository
     type: text
     value: ${artifactory-repository}
-  - name: artifactory-repository-path
+  - name: env_prop-artifactory-repository-path
     type: text
     value: ${artifactory-repository-path}
-  - name: helm-repository-username
+  - name: env_prop-artifactory-username
     type: text
     value: ${artifactory-username}
   - name: artifactory-apikey
@@ -80,43 +80,50 @@ properties:
     # type: secure
     type: SECURE
     value: ${api-key}
-  - name: registry-region
+  - name: env_prop-registry-region
     type: text
     value: ${registry-region}
-  - name: registry-namespace
+  - name: env_prop-registry-namespace
     type: text
     value: ${registry-namespace}
-  - name: operator-name
+  - name: env_prop-operator-name
     type: text
     value: ${operator-name}
-  - name: deploy-region
+  - name: env_prop-deploy-region
     type: text
     value: ${deploy-region}
-  - name: deploy-resource-group
+  - name: env_prop-deploy-resource-group
     type: text
     value: ${deploy-resource-group}
-  - name: deploy-cluster-name
+  - name: env_prop-deploy-cluster-name
     type: text
     value: ${deploy-cluster-name}
-  - name: deploy-namespace
+  - name: env_prop-deploy-namespace
     type: text
     value: ${deploy-namespace}
   #
-  - name: set-up-script
+  - name: env_prop-set-up-script
     type: text
     value: ${set-up-script}
-  - name: tear-down-script
+  - name: env_prop-tear-down-script
     type: text
     value: ${tear-down-script}
   #
-  - name: tron-cd-trigger-webhook
+  - name: env_prop-cd-trigger-webhook
     type: text
     value: ""
-  - name: tron-cd-token
+  - name: ci-cd-operator-token
     # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
     # type: secure
     type: SECURE
     value: ""
+  #
+  - name: env_prop-ansible-operator-configs-repository
+    type: text
+    value: ${operator_configs_repository_url}
+  - name: env_prop-ansible-operator-configs-branch
+    type: text
+    value: "master"
 triggers:
   - type: manual
     name: ci-master-manual
@@ -135,25 +142,16 @@ triggers:
     branch: master
     events: { "push": true }
   - type: manual
-    eventListener: ansible-operator-test-manual
-    name: test-operator-manual
+    eventListener: ansible-operator-cd-manual
+    name: cd-operator-manual
     properties:
-      - name: ansible-operator-configs-branch
-        type: text
-        value: "master"
-      - name: ansible-operator-configs-repository
-        type: text
-        value: ${operator_configs_repository_url}
-      - name: delete-release
+      - name: trigger_prop-helm-chart-version
         type: text
         value: ""
-      - name: helm-chart-version
-        type: text
-        value: ""
-      - name: molecule-tests-branch
+      - name: trigger_prop-molecule-tests-branch
         type: text
         value: "master"
-      - name: molecule-tests-repository
+      - name: trigger_prop-molecule-tests-repository
         type: text
         value: ${operator_repository_url}
   # No way to create generic webhook from template while
