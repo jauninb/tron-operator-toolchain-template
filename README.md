@@ -17,3 +17,22 @@
    - Copy the Secret to the Secured Environment Property **ci-cd-operator-token**.
 
 3) Save the Tekton Definition
+
+### (Optional) Ansible Roles/Collections installation
+
+You may need to add your github.ibm.com SSH key to be able to perform Ansible Galaxy install of collections/roles.
+
+You need to set values for the Secured properties: `github-ibm-com-id_rsa-pub` and `github-ibm-com-id_rsa-base64`.
+If you SSH key are defined in `tron_id_rsa.pub` and `tron_id_rsa files`, then:
+- For `github-ibm-com-id_rsa-pub`, perform
+  ```
+  clip < tron_id_rsa.pub
+  ```
+  and paste the value in `github-ibm-com-id_rsa-pub` environment property
+
+- For `github-ibm-com-id_rsa-base64`, perform
+  ```
+  base64 tron_id_rsa -w0 | clip
+  ```
+  and paste the value in `github-ibm-com-id_rsa-base64` environment property
+
