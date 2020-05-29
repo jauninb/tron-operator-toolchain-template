@@ -135,7 +135,7 @@ form:
       artifactory-server-url: "https://na.artifactory.swg-devops.com/artifactory"
       artifactory-repository: "wcp-watson-core-incubator-helm-virtual"
       artifactory-repository-path: "tron/jauninb"
-      artifactory-username: "jaunin.b@fr.ibm.com"
+      artifactory-username: ""
       ci-molecule-scenario: > 
         $env.source_provider == 'github_integrated' ? "unit-tests" : "test-local"
       cd-molecule-scenario: test-cluster
