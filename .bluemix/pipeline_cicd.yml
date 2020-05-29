@@ -27,9 +27,7 @@ private_worker: ${private_worker}
 properties:
   # Properties to build operator and test it
   - name: toolchain-apikey
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
+    type: secure
     value: ${toolchain-api-key}
   #
   - name: env_prop-helm-chart
@@ -37,14 +35,10 @@ properties:
     value: ${helm-chart-name}
   #
   - name: github-ibm-com-id_rsa-base64
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
+    type: secure
     value: ""
   - name: github-ibm-com-id_rsa-pub
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
+    type: secure
     value: ""
   - name: env_prop-ansible-roles-path
     type: text
@@ -70,15 +64,11 @@ properties:
     type: text
     value: ${artifactory-username}
   - name: artifactory-apikey
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
+    type: secure
     value: ${artifactory-api-key}
   #
   - name: apikey
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
+    type: secure
     value: ${api-key}
   - name: env_prop-registry-region
     type: text
@@ -113,9 +103,7 @@ properties:
     type: text
     value: ""
   - name: ci-cd-operator-token
-    # until https://github.ibm.com/org-ids/roadmap/issues/12765 is not fixed
-    # type: secure
-    type: SECURE
+    type: secure
     value: ""
   #
   - name: env_prop-ansible-operator-configs-repository
